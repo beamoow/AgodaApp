@@ -1,5 +1,5 @@
 [
-    { "id": "1", "title": "The Continent Hotel Sukhumvit-Asok BTS Bangkok by Compass Hospitality", "uri": "https://raw.githubusercontent.com/beamoow/AgodaApp/master/assets/continent.jpg" , "rate" : "5", "score" : "8.2 Excellent", "review" : "13,099 review" , "place" : "Sukhumvit,Bangkok" },
+    { "id": "1", "title": "The Continent Hotel", "uri": "https://raw.githubusercontent.com/beamoow/AgodaApp/master/assets/continent.jpg" , "rate" : "5", "score" : "8.2 Excellent", "review" : "13,099 review" , "place" : "Sukhumvit,Bangkok" },
     { "id": "2", "title": "ONE Hotel", "uri": "https://raw.githubusercontent.com/beamoow/AgodaApp/master/assets/one_hotel.jpg" , "rate" : "4", "score" : "8.7 Excellent", "review" : "280 review" , "place" : "Khlong Luang,Pathum Thani" },
     { "id": "3", "title": "GLOW Sukhumvit 71", "uri": "https://raw.githubusercontent.com/beamoow/AgodaApp/master/assets/glow.jpg" , "rate" : "4", "score" : "8.5 Excellent", "review" : "3,209 review" , "place" : "Sukhumvit,Bangkok" },
     { "id": "4", "title": "T2 Residence Sathorn", "uri": "https://raw.githubusercontent.com/beamoow/AgodaApp/master/assets/t2.jpg" , "rate" : "3", "score" : "8.8 Excellent", "review" : "1,608 review" , "place" : "Sathorn,Bangkok" },
