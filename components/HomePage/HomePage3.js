@@ -5,7 +5,7 @@ import { FontAwesome } from "@expo/vector-icons";
 
 export default function HomePage3() {
     return (
-        <View style={{ marginTop: 25, borderWidth: 1, borderColor: 'gray', borderRadius: 20, height: 100 }}>
+        <View style={{ marginTop: 25, borderRadius: 20, height: 100 , elevation:1.5}}>
             <View style={{ flexDirection: "row", justifyContent: "space-between" , margin:10}}>
                 <View style={{ flexDirection: "column", alignItems: "center"}}>
                     <Image style={{ height: 40, width: 40 }} source={require("../../assets/calendar.jpg")} />

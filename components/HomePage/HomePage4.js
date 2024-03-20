@@ -1,63 +1,86 @@
 import React, { useEffect, useState } from "react";
 import { Dimensions, FlatList, Image, ScrollView, Text, View } from "react-native";
+import { FontAwesome } from "@expo/vector-icons";
+import { Divider } from 'react-native-paper';
+
+
+
 
 export default function HomePage4(props) {
 
-    const [onlineTours, setOnlineTours] = useState([]);
+    const [onlineHotels, setOnlineHotels] = useState([]);
 
-    const loadOnlineTours = async () => {
+    const loadOnlineHotels = async () => {
         try {
-            let promise = await fetch('https://raw.githubusercontent.com/arc6828/myreactnative/master/assets/json/events.json ');
+            let promise = await fetch('https://raw.githubusercontent.com/beamoow/AgodaApp/master/LimitHotel.json ');
             let data = await promise.json();
             console.log("Load Data : ", data);
             //SET STATE
-            setOnlineTours(data);
+            setOnlineHotels(data);
         } catch (error) {
             console.log("ERROR : ", error);
         }
     }
 
-    useEffect(() => {                                          //ติดตามการเปลี่ยนแปลงdataนั้นๆ
-        loadOnlineTours();
+    useEffect(() => {
+        loadOnlineHotels();
     }, []);
 
 
     return (
         <View style={props.style}>
-            <Text style={{ fontsize: 20 }}>Up Coming Events</Text>
-            <Text style={{ color: "grey" }}>What the Worst That Could Happened</Text>
+            <Text style={{ fontSize: 18, marginTop: 25 }}>Limited time sale in Bangkok</Text>
             <FlatList
                 horizontal={true}
                 //data={tours}
-                data={onlineTours}
+                data={onlineHotels}
                 renderItem={
                     ({ item, index }) => {
                         console.log(item, index, item.uri);
                         return (
-                            <View style={{ marginRight: 10}}>
+                            <View style={{ marginRight: 10, marginTop: 10 }}>
 
                                 <View style={{ marginRight: 10 }}>
-                                    <Image style={{ width: Dimensions.get("screen").width / 2.0, height: 150, borderTopLeftRadius: 10, borderTopRightRadius: 10 , borderColor:"grey", borderWidth:1 }} source={{ uri: item.uri }} />
-                                    <View style={{ flexDirection: "row", borderColor:"grey", borderWidth:1, marginTop: -30, height: 55, width: Dimensions.get("screen").width / 2.0, paddingHorizontal: 10, backgroundColor: 'lightyellow', borderBottomLeftRadius: 10, borderBottomRightRadius: 10 }}>
-                                        <View style={{ flexDirection: "column", marginRight: 10}}>
-                                            <Text style={{ fontSize: 15, color: "red" , fontWeight:"200"}}>{item.month}</Text>
-                                            <Text style={{ fontSize: 10, color: "grey", marginLeft:8 }}>{item.date}</Text>
-                                        </View>
+                                    <Image style={{ width: Dimensions.get("screen").width / 2.0, height: 150, borderTopLeftRadius: 15, borderTopRightRadius: 15, borderColor: "lightgrey", borderWidth: 1 }} source={{ uri: item.uri }} />
+                                    <View style={{ flexDirection: "row", borderColor: "lightgrey", borderWidth: 1, marginTop: -30, height: 120, width: Dimensions.get("screen").width / 2.0, paddingHorizontal: 10, backgroundColor: 'white', borderBottomLeftRadius: 15, borderBottomRightRadius: 15 }}>
                                         <View style={{ flexDirection: "column" }}>
-                                            <Text style={{ fontSize: 15, color: "black", fontWeight:"200" }}>{item.title}</Text>
-                                            <Text style={{ fontSize: 10, color: "grey" }}>{item.datetime}</Text>
-                                            <Text style={{ fontSize: 10, color: "grey" }}>{item.place}</Text>
+                                            <Text style={{ fontSize: 17, color: "black", marginTop: 10 }}>{item.title}</Text>
+
+                                            <View style={{ flexDirection: "row" }}>
+                                                <FontAwesome name="star" size={15} color="orange" />
+                                                <FontAwesome name="star" size={15} color="orange" />
+                                                <FontAwesome name="star" size={15} color="orange" />
+                                                <FontAwesome name="star" size={15} color="orange" />
+                                                <FontAwesome name="star" size={15} color="orange" />
+                                            </View>
+
+                                            <View style={{ flexDirection: "row" }}>
+                                                <Text style={{ fontSize: 16, color: "#437CE9", fontWeight: "600" }}>{item.score}</Text>
+                                                <Text style={{ fontSize: 14, color: "grey", marginLeft: 5, marginTop: 1 }}>{item.review}</Text>
+                                            </View>
+                                            <View style={{ flexDirection: "row" }}>
+                                                <FontAwesome name="map-marker" size={15} color="#6D6D6D" />
+                                                <Text style={{ fontSize: 14, color: "black", marginLeft: 5 }}>{item.place}</Text>
+                                            </View>
                                         </View>
+
                                     </View>
+                                    {/* <View style={{ borderColor: "lightgrey", borderWidth: 1, marginTop: -30, height: 100, width: Dimensions.get("screen").width / 2.0, paddingHorizontal: 10, backgroundColor: 'white', borderBottomLeftRadius: 15, borderBottomRightRadius: 15 }}>
+                                        <Text>See more properties with deals today</Text>
+                                    </View> */}
                                 </View>
+
                             </View>
-                            //<TourItem item={item} index={index} />
+
                         );
+
                     }
+
                 }
                 keyExtractor={item => item.id}
 
             />
+            <Divider style={{ marginLeft:-100, marginRight:-100, marginTop:20 }} />
 
 
         </View >
