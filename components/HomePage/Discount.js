@@ -8,7 +8,7 @@ export default function Discount() {
     return (
         <View>
             <Text style={{ fontSize: 18, marginTop: 25 }}>Long stay discount</Text>
-            <View style={{ marginTop: 10, borderRadius: 15, height: 125, borderColor: "lightgray", borderWidth: 1 }}>
+            <View style={{ marginTop: 10, borderRadius: 15, height: 125, borderColor: "lightgray", borderWidth: 0.8 }}>
                 <View style={{ flexDirection: "row", margin: 10 }}>
 
                     <View style={{ flexDirection: "column", alignItems: "center" }}>

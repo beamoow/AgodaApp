@@ -47,11 +47,9 @@ export default function HomePage4(props) {
                                             <Text style={{ fontSize: 17, color: "black", marginTop: 10 }}>{item.title}</Text>
 
                                             <View style={{ flexDirection: "row" }}>
-                                                <FontAwesome name="star" size={15} color="orange" />
-                                                <FontAwesome name="star" size={15} color="orange" />
-                                                <FontAwesome name="star" size={15} color="orange" />
-                                                <FontAwesome name="star" size={15} color="orange" />
-                                                <FontAwesome name="star" size={15} color="orange" />
+                                                {[...Array(parseInt(item.rate))].map((_, i) => (
+                                                    <FontAwesome key={i} name="star" size={15} color="orange" />
+                                                ))}
                                             </View>
 
                                             <View style={{ flexDirection: "row" }}>
@@ -62,13 +60,13 @@ export default function HomePage4(props) {
                                                 <FontAwesome name="map-marker" size={15} color="#6D6D6D" />
                                                 <Text style={{ fontSize: 14, color: "black", marginLeft: 5 }}>{item.place}</Text>
                                             </View>
+
                                         </View>
 
                                     </View>
-                                    {/* <View style={{ borderColor: "lightgrey", borderWidth: 1, marginTop: -30, height: 100, width: Dimensions.get("screen").width / 2.0, paddingHorizontal: 10, backgroundColor: 'white', borderBottomLeftRadius: 15, borderBottomRightRadius: 15 }}>
-                                        <Text>See more properties with deals today</Text>
-                                    </View> */}
+
                                 </View>
+
 
                             </View>
 
@@ -80,7 +78,7 @@ export default function HomePage4(props) {
                 keyExtractor={item => item.id}
 
             />
-            <Divider style={{ marginLeft:-100, marginRight:-100, marginTop:20 }} />
+            <Divider style={{ marginLeft: -100, marginRight: -100, marginTop: 20 }} />
 
 
         </View >

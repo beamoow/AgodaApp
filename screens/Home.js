@@ -9,6 +9,8 @@ import HomePage4 from "../components/HomePage/HomePage4";
 import Deals from "../components/HomePage/Deals";
 import FlightAct from "../components/HomePage/FlightAct";
 import Discount from "../components/HomePage/Discount";
+import Tiers from "../components/HomePage/Tiers";
+import Explore from "../components/HomePage/Explore";
 
 
 export default function Home() {
@@ -24,6 +26,8 @@ export default function Home() {
                 <Deals />
                 <FlightAct />
                 <Discount />
+                <Tiers />
+                <Explore />
             </View>
         </ScrollView>
 

@@ -4,10 +4,11 @@ import Home from '../screens/Home';
 
 import { FontAwesome } from "@expo/vector-icons";
 import CouponDeal from '../components/Coupons/CouponDeal';
-import AddCart from '../components/Cart/AddCart';
 import Setmore from '../components/More/Setmore';
 import Book from '../screens/Book';
-
+import Carts from '../screens/Carts';
+import BookTab from './BookTab';
+import { Text, View } from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
@@ -25,29 +26,29 @@ export default function BottomTab() {
                 }}
             />
             <Tab.Screen
-                name="Bookings"
-                component={Book}
+                name="Booking"
+                component={BookTab}
                 options={{
                     tabBarLabel: "My Trips",
-                    tabBarIcon: ({ color, size }) => (<FontAwesome name="heart" color={color} size={size} />),
-                    headerShown: true,
-                }}
-            />
-             <Tab.Screen
-                name="Coupons"
-                component={CouponDeal}
-                options={{
-                    tabBarLabel: "Coupons",
-                    tabBarIcon: ({ color, size }) => (<FontAwesome name="paw" color={color} size={size} />),
+                    tabBarIcon: ({ color, size }) => (<FontAwesome name="suitcase" color={color} size={size} />),
                     headerShown: true,
                 }}
             />
             <Tab.Screen
-                name="Carts"
-                component={AddCart}
+                name="Coupons"
+                component={CouponDeal}
+                options={{
+                    tabBarLabel: "Coupons",
+                    tabBarIcon: ({ color, size }) => (<FontAwesome name="tag" color={color} size={size} />),
+                    headerShown: true,
+                }}
+            />
+            <Tab.Screen
+                name="Cart"
+                component={Carts}
                 options={{
                     tabBarLabel: "Cart",
-                    tabBarIcon: ({ color, size }) => (<FontAwesome name="plane" color={color} size={size} />),
+                    tabBarIcon: ({ color, size }) => (<FontAwesome name="shopping-cart" color={color} size={size} />),
                     headerShown: true,
                 }}
             />
@@ -56,10 +57,10 @@ export default function BottomTab() {
                 component={Setmore}
                 options={{
                     tabBarLabel: "More",
-                    tabBarIcon: ({ color, size }) => (<FontAwesome name="bed" color={color} size={size} />),
+                    tabBarIcon: ({ color, size }) => (<FontAwesome name="user" color={color} size={size} />),
                     headerShown: true,
                 }}
-            />  
+            />
         </Tab.Navigator>
     );
 
