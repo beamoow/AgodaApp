@@ -1,0 +1,12 @@
+[
+    {"id":1,"name": "Novotel Bangkok Future Park Rangsit","address":"จ.ปทุมธานี", "latitude" : "13.995177", "longitude" : "100.616828"} ,
+    {"id":2,"name": "HOP INN Rangsit Hotel","address":"จ.ปทุมธานี", "latitude" : "13.986159480381321", "longitude" : "100.617007995273816"} ,
+    {"id":3,"name": "Matini Premium","address":"จ.ปทุมธานี" , "latitude" : "13.981401695254966", "longitude" : "100.62493077755218"},
+    {"id":4,"name": "Asia Airport Hotel","address":"จ.ปทุมธานี" , "latitude" : "13.962314901446865", "longitude" : "100.62323887199469"},
+    {"id":5,"name": "คลองหลวง 27 แมนชั่น","address":"จ.ปทุมธานี" , "latitude" : "14.051025388185936", "longitude" : "100.61452593337302"},
+    {"id":6,"name": "TUmansion","address":"จ.ปทุมธานี" , "latitude" : "14.071822375867235", "longitude" : "100.61959541988156"},
+    {"id":7,"name": "iRESIDENCE HOTEL PATHUMTHANI","address":"จ.ปทุมธานี" , "latitude" : "14.08456981247075", "longitude" : "100.62915797147173"},
+    {"id":8,"name": "The Idle Hotel & Residence","address":"จ.ปทุมธานี", "latitude" : "14.111736772451579", "longitude" : "100.61559850453799" },
+    {"id":9,"name": "Jpark Thammasat Rangsit","address":"จ.ปทุมธานี", "latitude" : "14.067738863207708", "longitude" : "100.59724579475028" },
+    {"id":10,"name": "Tinidee Hotel Bangkok Golf Club","address":"จ.ปทุมธานี", "latitude" : "13.981926216746102", "longitude" : "100.54288241988013" }
+]
