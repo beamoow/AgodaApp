@@ -5,6 +5,7 @@ import TodoList from "../screens/TodoList";
 import CartDetail from "../screens/CartDetail";
 import CartForm from "../screens/CartForm";
 import Carts from "../screens/Carts";
+import Location from "../screens/Location";
 
 const Stack = createStackNavigator();
 
@@ -16,6 +17,8 @@ export default function RootStack() {
             <Stack.Screen name="CartDetail" component={CartDetail} options={{ title: "Cart Detail" }} />
             <Stack.Screen name="CartForm" component={CartForm} />
             <Stack.Screen name="TodoList" component={TodoList}   />
+            <Stack.Screen name="Location" component={Location} />
+
 
         </Stack.Navigator>
     );

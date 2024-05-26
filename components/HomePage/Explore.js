@@ -1,5 +1,5 @@
 import React from "react";
-import { Dimensions, Image, ScrollView, Text, View } from "react-native";
+import { Dimensions, Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { Divider } from "react-native-paper";
 import { FontAwesome } from "@expo/vector-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,14 +12,16 @@ export default function Explore(props) {
             <ScrollView horizontal={true} style={{ flexDirection: "row", marginTop: 15, }}>
 
                 <View style={{ marginRight: 10 }}>
-                    <View style={{ borderRadius: 20, height: 27, width: 140, borderColor: "#3671CF", borderWidth: 2, flexDirection: "row", backgroundColor: "#E4EDFA" }}>
-                        <View style={{ flexDirection: "column" }}>
-                            <FontAwesome name="thumbs-up" size={15} color="#3671CF" style={{ marginLeft: 8, marginTop: 3 }} />
+                    <TouchableOpacity>
+                        <View style={{ borderRadius: 20, height: 27, width: 140, borderColor: "#3671CF", borderWidth: 2, flexDirection: "row", backgroundColor: "#E4EDFA" }}>
+                            <View style={{ flexDirection: "column" }}>
+                                <FontAwesome name="thumbs-up" size={15} color="#3671CF" style={{ marginLeft: 8, marginTop: 3 }} />
+                            </View>
+                            <View style={{ flexDirection: "column" }}>
+                                <Text style={{ fontSize: 15, color: "#437CE9", marginLeft: 5 }}>Recommended</Text>
+                            </View>
                         </View>
-                        <View style={{ flexDirection: "column" }}>
-                            <Text style={{ fontSize: 15, color: "#437CE9", marginLeft: 5 }}>Recommended</Text>
-                        </View>
-                    </View>
+                    </TouchableOpacity>
                 </View>
 
                 <View style={{ marginRight: 10 }}>

@@ -9,13 +9,15 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import Carts from '../screens/Carts';
 import Book from '../screens/Book';
 import Cancelled from '../components/MyTrips/Cancelled';
+import Booking from '../components/Trips/Booking';
+
 const Tab = createMaterialTopTabNavigator();
 
 
 export default function BookTab() {
 
     return (
-        <Tab.Navigator screenOptions={{ tabBarActiveTintColor: "tomato", tabBarInactiveTintColor: "gray", }} >
+        <Tab.Navigator screenOptions={{ tabBarActiveTintColor: "#3671CF", tabBarInactiveTintColor: "gray", }} >
             <Tab.Screen
                 name="Upcoming"
                 component={Book}
@@ -26,7 +28,7 @@ export default function BookTab() {
             />
             <Tab.Screen
                 name="Completed"
-                component={Cancelled}
+                component={Booking}
                 options={{
                     tabBarLabel: "Completed",
                     headerShown: false

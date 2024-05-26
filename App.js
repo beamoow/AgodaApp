@@ -5,6 +5,7 @@ import { FontAwesome } from '@expo/vector-icons';
 //import Home from './screens/Home';
 import { NavigationContainer } from '@react-navigation/native';
 import RootStack from './navigations/RootStack';
+import { AuthContextProvider } from './hooks/AuthContextProvider';
 
 
 
@@ -12,9 +13,11 @@ import RootStack from './navigations/RootStack';
 export default function App() {
   return (
     //<Home />
-    <NavigationContainer>
-      <RootStack />
-    </NavigationContainer>
+    <AuthContextProvider>
+      <NavigationContainer>
+        <RootStack />
+      </NavigationContainer>
+    </AuthContextProvider>
 
   );
 }

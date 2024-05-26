@@ -12,14 +12,16 @@ import TodoStorage from "../storages/TodoStorage";
 
 
 export default function Carts() {
+    
     const navigation = useNavigation();
-    //TOP RIGHT MENU
+
+    // TOP RIGHT MENU
     useLayoutEffect(() => {
         navigation.setOptions({
             headerLeft: () => (
                 <TouchableOpacity
                     style={{ paddingLeft: 20 }}
-                    onPress={() => { navigation.navigate("TodoList"); }}
+                    // onPress={() => { navigation.navigate("TodoList"); }}
                 >
                     <FontAwesome name="angle-left" size={20} color="black" />
                 </TouchableOpacity>
@@ -28,17 +30,14 @@ export default function Carts() {
     }, [navigation]);
 
     const [products, setProducts] = useState([
-        { id: 1, name: "พัฒนา Application ด้วย React และ React Native", price: 330, image: "https://raw.githubusercontent.com/arc6828/myreactnative/master/assets/week9/book-1.jpg", checked: false },
-        { id: 2, name: "พัฒนาเว็บแอพพลิเคชันด้วย Firebase ร่วมกับ React", price: 229, image: "https://raw.githubusercontent.com/arc6828/myreactnative/master/assets/week9/book-2.jpg", checked: false },
-        { id: 3, name: "พัฒนา Web Apps ด้วย React Bootstrap + Redux", price: 349, image: "https://raw.githubusercontent.com/arc6828/myreactnative/master/assets/week9/book-3.jpg", checked: false },
+        { id: 1, name: "Davis", price: 1940, image: "https://raw.githubusercontent.com/arc6828/myreactnative/master/assets/week9/book-1.jpg", star: 4, rate: 7.9, criterior: "Very Good", review: 555, room: "Studio", night: 1, day_in: 31, day_out: 15, month_in: "July", month_out: "December" }
     ]);
 
     const [showTotalPopup, setShowTotalPopup] = useState(false);
-
+    const [refresh, setRefresh] = useState(false);
 
     const loadCarts = async () => {
         setRefresh(true);
-        // let products = await BookStorage.readItems();
         let products = await HotelService.getItems();
         setProducts(products);
         setRefresh(false);
@@ -53,8 +52,6 @@ export default function Carts() {
         return unsubscribe;
     }, [navigation]);
 
-    const [refresh, setRefresh] = useState(false);
-
     const handleCheckboxChange = (id) => {
         // Toggle the checked state of the clicked item
         const updatedProducts = products.map((product) =>
@@ -64,11 +61,21 @@ export default function Carts() {
         setShowTotalPopup(true);
     };
 
-
     // Calculate total price of checked items
     const totalCheckedPrice = products
-        .filter((product) => product.checked)
-        .reduce((sum, product) => sum + product.price, 0);
+        .filter(product => product.checked)
+        .reduce((sum, product) => sum + (parseFloat(product.price) || 0), 0);
+
+    // Count the number of checked items
+    const checkedItemCount = products.filter(product => product.checked).length;
+
+    // Format the total price without leading zeros and with two decimal places
+    const formattedTotalCheckedPrice = totalCheckedPrice.toFixed(2);
+
+    // Logging the total price and count for debugging
+    console.log("Total Checked Price:", formattedTotalCheckedPrice);
+    console.log("Checked Item Count:", checkedItemCount);
+
 
 
     return (
@@ -89,18 +96,17 @@ export default function Carts() {
                                         {/* <FontAwesome name="info" size={15} color="orange" style={{alignContent:"flex-end"}} /> */}
                                     </View>
                                     <View style={{ flexDirection: "row", marginLeft: 20, marginTop: 15 }}>
-                                        <FontAwesome name="star" size={15} color="orange" />
-                                        <FontAwesome name="star" size={15} color="orange" />
-                                        <FontAwesome name="star" size={15} color="orange" />
-                                        <FontAwesome name="star" size={15} color="orange" />
+                                        {[...Array(parseInt(item.star))].map((_, i) => (
+                                            <FontAwesome key={i} name="star" size={15} color="orange" />
+                                        ))}
                                         <View style={{ flexDirection: "row", marginLeft: 8 }}>
                                             <FontAwesome name="map-marker" size={15} color="#6D6D6D" />
-                                            <Text style={{ fontSize: 15, color: "black", marginLeft: 5, marginTop: -2 }}>Sukhumvit</Text>
+                                            <Text style={{ fontSize: 15, color: "black", marginLeft: 5, marginTop: -2 }}>{item.address}</Text>
                                         </View>
-                                        <View style={{ flexDirection: "row", marginTop: 25, marginLeft: -147 }}>
-                                            <Text style={{ fontSize: 17, color: "#437CE9", fontWeight: "600" }}>8.6 Excellent</Text>
-                                            <Text style={{ fontSize: 15, color: "grey", marginLeft: 10, marginTop: 2 }}>6,333 review</Text>
-                                        </View>
+                                    </View>
+                                    <View style={{ flexDirection: "row", marginTop: 5, marginLeft: 21 }}>
+                                        <Text style={{ fontSize: 17, color: "#437CE9", fontWeight: "600" }}>{item.rate} {item.criterior}</Text>
+                                        <Text style={{ fontSize: 15, color: "grey", marginLeft: 10, marginTop: 2 }}>{item.review} review</Text>
                                     </View>
                                 </View>
                             </View>
@@ -116,16 +122,16 @@ export default function Carts() {
                                             />
                                         </TouchableOpacity>
                                         <FontAwesome name="bed" size={18} color="#2B6CE6" style={{ marginTop: 4, marginLeft: 5 }} />
-                                        <Text style={{ fontSize: 18, color: "#2B6CE6", marginLeft: 10 }}>1 x Ground Floor Superior Room</Text>
+                                        <Text style={{ fontSize: 18, color: "#2B6CE6", marginLeft: 10 }}>{item.room}</Text>
                                     </View>
                                     <View style={{ flexDirection: "row", marginLeft: 32, marginTop: 5 }}>
-                                        <Text style={{ fontSize: 16, color: "grey" }}>31 Mar - 01 Apr (1Night)</Text>
+                                        <Text style={{ fontSize: 16, color: "grey" }}>{item.day_in} {item.month_in} - {item.day_out} {item.month_out} ({item.night} Night)</Text>
                                     </View>
                                     <View style={{ flexDirection: "row", justifyContent: "flex-end", marginRight: 20 }}>
-                                        <Text style={{ fontSize: 20, color: "black" }}>฿ {item.price}.00</Text>
+                                        <Text style={{ fontSize: 20, color: "black" }}>฿ {item.price}</Text>
                                     </View>
                                     <View style={{ flexDirection: "row", justifyContent: "flex-end", marginRight: 20 }}>
-                                        <Text style={{ color: "grey" }}> 1 night with taxes</Text>
+                                        <Text style={{ color: "grey" }}> {item.night} night with taxes</Text>
                                     </View>
                                 </View>
                             </View>
@@ -143,14 +149,14 @@ export default function Carts() {
             >
                 <View style={styles.modalContainer}>
                     <View style={styles.modalContent}>
-                        <View style={{ flexDirection: "row" }}>
+                        <View style={{ flexDirection: "row" , justifyContent:"space-between"}}>
                             <Text style={styles.totalText}>Total Price</Text>
-                            <Text style={{marginLeft:240, color:"red", fontSize:20, marginTop:5}}>฿ {totalCheckedPrice}.00</Text>
+                            <Text style={{color: "red", fontSize: 20, marginTop: 5 }}>฿ {formattedTotalCheckedPrice}</Text>
                         </View>
                         <View style={{ flexDirection: "row" }}>
-                            <Text style={{ fontSize: 15, color: "grey" , marginTop:-8}}>1 selected, with taxes and fees</Text>
+                            <Text style={{ fontSize: 15, color: "grey", marginTop: -8 }}>{checkedItemCount} selected, with taxes and fees</Text>
                         </View>
-                        <View style={{ flexDirection: "row", marginTop:15 }}>
+                        <View style={{ flexDirection: "row", marginTop: 15 }}>
                             <TouchableOpacity
                                 style={styles.closeButton}
                                 onPress={() => setShowTotalPopup(false)}
@@ -214,7 +220,7 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         borderRadius: 50,
         alignItems: "center",
-        width:410
+        width: 410
     },
     closeButtonText: {
         color: "white",

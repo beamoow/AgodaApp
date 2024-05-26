@@ -9,7 +9,7 @@ export default function Book() {
     return (
         <ScrollView>
             <View style={{ backgroundColor: 'white' }}>
-                <Booking />
+                {/* <Booking /> */}
                 <Booking2 />
                 <Booking3 />
             </View>

@@ -69,22 +69,25 @@ export default function CartDetail() {
             </TouchableOpacity>
             <Text style={{ fontSize: 20, marginBottom: 10, marginLeft: 15 }}> {cart ? cart.name : ""} </Text>
             <View style={{ flexDirection: "column" }}>
-                <View style={{ flexDirection: "row", marginLeft: 20, marginBottom: 5 }}>
-                    <FontAwesome name="star" size={15} color="orange" />
-                    <FontAwesome name="star" size={15} color="orange" />
-                    <FontAwesome name="star" size={15} color="orange" />
-                    <FontAwesome name="star" size={15} color="orange" />
+                <View style={{ flexDirection: "row", marginBottom: 5 ,justifyContent:"space-between", marginHorizontal:20}}>
+                    <View style={{ flexDirection:"row"}}>
+                        {[...Array(parseInt(cart.star))].map((_, i) => (
+                            <FontAwesome key={i} name="star" size={15} color="orange" />
+                        ))}
+                    </View>
                     <View style={{ flexDirection: "row", marginLeft: 8 }}>
-                        <Text style={{ fontSize: 15, color: "#437CE9", marginLeft: 260, marginTop: -3 }}>8.6 Excellent</Text>
+                        <Text style={{ fontSize: 15, color: "#437CE9", marginTop: -3 }}>{cart ? cart.rate : ""} {cart ? cart.criterior : ""}</Text>
                     </View>
                 </View>
-                <View style={{ flexDirection: "row", marginLeft: 22, marginBottom: 10 }}>
+                <View style={{ flexDirection: "row", marginLeft: 22 }}>
                     <FontAwesome name="map-marker" size={15} color="black" />
-                    <Text style={{ fontSize: 15, color: "black", marginLeft: 5, marginTop: -2 }}>Sukhumvit</Text>
-                    <Text style={{ fontSize: 14, color: "grey", marginLeft: 230 }}>6,333 reviews</Text>
+                </View>
+                <View style={{ flexDirection: "row", marginBottom: 10, justifyContent: "space-between", marginRight: 20, marginVertical: -17, marginLeft: 35 }}>
+                    <Text style={{ fontSize: 15, color: "black" }}>{cart ? cart.address : ""}</Text>
+                    <Text style={{ fontSize: 14, color: "grey" }}>{cart ? cart.review : ""} reviews</Text>
                 </View>
                 <Divider style={{ marginTop: 5, marginBottom: 10 }} />
-                <Text style={{ fontSize: 17, marginBottom: 5, marginLeft: 20 }}>Ground Floor Superior Room  </Text>
+                <Text style={{ fontSize: 17, marginBottom: 5, marginLeft: 20 }}>{cart ? cart.room : ""}  </Text>
                 <View style={{ flexDirection: "row" }}>
                     <Text style={{ marginTop: 5, marginLeft: 20 }}>37m²/398 ft²</Text>
                     <Text style={{ fontSize: 15, color: "#437CE9", marginLeft: 280, marginTop: 4 }}>Details</Text>
@@ -107,28 +110,28 @@ export default function CartDetail() {
                 <Divider style={{ marginTop: 15, marginBottom: 10 }} />
                 <View style={{ flexDirection: "row" }}>
                     <FontAwesome name="check" size={14} color="green" style={{ marginTop: 6, marginLeft: 20 }} />
-                    <Text style={{ marginTop: 5 , marginLeft:5}}>Breakfast available (฿ 850 / person)</Text>
+                    <Text style={{ marginTop: 5, marginLeft: 5 }}>Breakfast available (฿ 850 / person)</Text>
                 </View>
                 <View style={{ flexDirection: "row" }}>
                     <FontAwesome name="check" size={14} color="green" style={{ marginTop: 6, marginLeft: 20 }} />
-                    <Text style={{ marginTop: 5 , marginLeft:5}}>Non-refundable (Low price!)</Text>
+                    <Text style={{ marginTop: 5, marginLeft: 5 }}>Non-refundable (Low price!)</Text>
                 </View>
                 <View style={{ flexDirection: "row" }}>
                     <FontAwesome name="check" size={14} color="green" style={{ marginTop: 6, marginLeft: 20 }} />
-                    <Text style={{ marginTop: 5 , marginLeft:5}}>Book and pay now</Text>
+                    <Text style={{ marginTop: 5, marginLeft: 5 }}>Book and pay now</Text>
                 </View>
                 <View style={{ flexDirection: "row" }}>
                     <FontAwesome name="check" size={14} color="green" style={{ marginTop: 6, marginLeft: 20 }} />
-                    <Text style={{ marginTop: 5 , marginLeft:5}}>Free WiFi</Text>
+                    <Text style={{ marginTop: 5, marginLeft: 5 }}>Free WiFi</Text>
                 </View>
                 <View style={{ flexDirection: "row" }}>
                     <FontAwesome name="user" size={14} color="black" style={{ marginTop: 7, marginLeft: 20 }} />
-                    <Text style={{ marginTop: 5 , marginLeft:5}}>2 adults & 1 child (0-11 years)</Text>
+                    <Text style={{ marginTop: 5, marginLeft: 5 }}>2 adults & 1 child (0-11 years)</Text>
                 </View>
-                <View style={{ flexDirection: "row" , justifyContent:"flex-end", marginTop:-2}}>
-                    <Text style={{ color: "red", fontSize: 20, marginRight:22 }}>฿ {cart ? cart.price : ""}.00</Text>
+                <View style={{ flexDirection: "row", justifyContent: "flex-end", marginTop: -2 }}>
+                    <Text style={{ color: "red", fontSize: 20, marginRight: 22 }}>฿ {cart ? cart.price : ""}</Text>
                 </View>
-                <Modal visible={modalVisible} transparent={true} onRequestClose={() => { setModalVisible(false); }} >
+                {/* <Modal visible={modalVisible} transparent={true} onRequestClose={() => { setModalVisible(false); }} >
                     <ImageViewer imageUrls={[{ url: cart ? cart.image : "", props: {} }]}
                         enableSwipeDown={true}
                         onCancel={() => { console.log("SwipeDown"); setModalVisible(false); }}
@@ -142,7 +145,7 @@ export default function CartDetail() {
                             );
                         }}
                     />
-                </Modal>
+                </Modal> */}
             </View>
         </View>
     );

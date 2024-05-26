@@ -1,6 +1,6 @@
 import React from "react";
 import { ScrollView, View } from "react-native";
-import Setmore from "../components/More/setmore";
+import Setmore from "../components/More/Setmore";
 
 
 export default function Setting() {

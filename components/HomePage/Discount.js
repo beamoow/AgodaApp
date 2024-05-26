@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, ScrollView, Text, View } from 'react-native';
+import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { FontAwesome } from "@expo/vector-icons";
 import { Divider } from 'react-native-paper';
 
@@ -21,14 +21,19 @@ export default function Discount() {
 
                     </View>
                     <View style={{ flexDirection: "column", alignItems: "flex-end", marginLeft: 30 }}>
-                        <FontAwesome name="close" size={30} color="black" />
-                        <View style={{ marginTop: 45, borderRadius: 20, height: 25, width:100, borderColor: "lightgray", borderWidth: 1 , alignItems:"center"}}>
-                            <Text style={{ fontSize: 15, color: "#437CE9"}}>Learn more</Text>
+                        <TouchableOpacity>
+                            <FontAwesome name="close" size={30} color="black" />
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <View style={{ marginTop: 45, borderRadius: 20, height: 25, width: 100, borderColor: "lightgray", borderWidth: 1, alignItems: "center" }}>
+                                <Text style={{ fontSize: 15, color: "#437CE9" }}>Learn more</Text>
                             </View>
-                        </View>
+                        </TouchableOpacity>
+
                     </View>
                 </View>
-                <Divider style={{ marginLeft: -100, marginRight: -100, marginTop: 20 }} />
             </View>
-            );
+            <Divider style={{ marginLeft: -100, marginRight: -100, marginTop: 20 }} />
+        </View >
+    );
 }

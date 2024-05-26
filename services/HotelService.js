@@ -1,8 +1,10 @@
 // const url_endpoint = "http://172.16.94.92:8000/api/book";
-const url_endpoint = "https://ckartisan.com/api/book";
+// const url_endpoint = "https://ckartisan.com/api/book";
+const url_endpoint = "http://192.168.1.40:8000/api/hotel";
 
 const getItems = async () => {
   try {
+    console.log("hello")
     let response = await fetch(url_endpoint);
     let items = await response.json();
     return items;

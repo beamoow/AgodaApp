@@ -11,6 +11,7 @@ import FlightAct from "../components/HomePage/FlightAct";
 import Discount from "../components/HomePage/Discount";
 import Tiers from "../components/HomePage/Tiers";
 import Explore from "../components/HomePage/Explore";
+import HomePage5 from "../components/HomePage/HomePage5";
 
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
                 <HomePage2 />
                 <HomePage3 />
                 <HomePage4 />
+                <HomePage5 />
                 {/* <HomePage4test />
                 <Iconstar /> */}
                 <Deals />

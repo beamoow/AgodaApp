@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, ScrollView, Text, View } from 'react-native';
+import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { FontAwesome } from "@expo/vector-icons";
 import { Divider } from 'react-native-paper';
 
@@ -16,7 +16,9 @@ export default function Tiers() {
                         <Text style={{ fontSize: 15, color: "black" }}>VIP Silver!</Text>
                     </View>
                     <View style={{ flexDirection: "column", alignItems: "flex-end", marginLeft: 110, marginTop: 10 }}>
-                        <Text style={{ fontSize: 16, color: "#3F3F41" }}>Learn more</Text>
+                        <TouchableOpacity>
+                            <Text style={{ fontSize: 16, color: "#3F3F41" }}>Learn more</Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
             </View>
@@ -26,17 +28,17 @@ export default function Tiers() {
                     <View style={{ flexDirection: "column" }}>
                         <View style={{ backgroundColor: "#EDF0FA", height: 22, width: 369, borderRadius: 30 }}></View>
                         <View style={{ backgroundColor: "#D17A50", height: 25, width: 25, borderRadius: 50 / 2, alignItems: "center", marginTop: -23, marginLeft: 3 }}>
-                            <FontAwesome name="check" size={18} color="white" style={{marginTop:3}} />
+                            <FontAwesome name="check" size={18} color="white" style={{ marginTop: 3 }} />
                         </View>
                         <View style={{ backgroundColor: "#8B8E96", height: 25, width: 25, borderRadius: 50 / 2, alignItems: "center", marginTop: -25, marginLeft: 85 }}>
-                            <FontAwesome name="star" size={18} color="#EDF0FA" style={{marginTop:3}} />
+                            <FontAwesome name="star" size={18} color="#EDF0FA" style={{ marginTop: 3 }} />
                         </View>
                         <View style={{ backgroundColor: "#D4D9E3", height: 25, width: 25, borderRadius: 50 / 2, alignItems: "center", marginTop: -25, marginLeft: 170 }}>
                         </View>
                         <View style={{ backgroundColor: "#D4D9E3", height: 25, width: 25, borderRadius: 50 / 2, alignItems: "center", marginTop: -25, marginLeft: 255 }}>
                         </View>
                         <View style={{ backgroundColor: "#8B8E96", height: 25, width: 25, borderRadius: 50 / 2, alignItems: "center", marginTop: -25, marginLeft: 340 }}>
-                            <FontAwesome name="star" size={18} color="#EFE4AB" style={{marginTop:3}} />
+                            <FontAwesome name="star" size={18} color="#EFE4AB" style={{ marginTop: 3 }} />
                         </View>
                         <Text style={{ fontSize: 15, color: "#747A81", marginTop: 10 }}>Bronze</Text>
                     </View>

@@ -9,6 +9,7 @@ import Book from '../screens/Book';
 import Carts from '../screens/Carts';
 import BookTab from './BookTab';
 import { Text, View } from 'react-native';
+import AuthStack from './AuthStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -26,22 +27,27 @@ export default function BottomTab() {
                 }}
             />
             <Tab.Screen
-                name="Booking"
+                name="Bookings"
                 component={BookTab}
                 options={{
                     tabBarLabel: "My Trips",
                     tabBarIcon: ({ color, size }) => (<FontAwesome name="suitcase" color={color} size={size} />),
                     headerShown: true,
+                    headerTitleAlign: "center",
                 }}
             />
             <Tab.Screen
-                name="Coupons"
+                name="Coupons and Deals"
                 component={CouponDeal}
                 options={{
                     tabBarLabel: "Coupons",
                     tabBarIcon: ({ color, size }) => (<FontAwesome name="tag" color={color} size={size} />),
                     headerShown: true,
+                    headerTitleAlign: "center",
+                    headerTintColor: "#292929",
+                    headerTransparent: false
                 }}
+
             />
             <Tab.Screen
                 name="Cart"
@@ -50,15 +56,16 @@ export default function BottomTab() {
                     tabBarLabel: "Cart",
                     tabBarIcon: ({ color, size }) => (<FontAwesome name="shopping-cart" color={color} size={size} />),
                     headerShown: true,
+                    headerTitleAlign: "center"
                 }}
             />
             <Tab.Screen
                 name="Set"
-                component={Setmore}
+                component={AuthStack}
                 options={{
                     tabBarLabel: "More",
                     tabBarIcon: ({ color, size }) => (<FontAwesome name="user" color={color} size={size} />),
-                    headerShown: true,
+                    headerShown: false,
                 }}
             />
         </Tab.Navigator>

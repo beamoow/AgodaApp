@@ -78,7 +78,6 @@ export default function HomePage4(props) {
                 keyExtractor={item => item.id}
 
             />
-            <Divider style={{ marginLeft: -100, marginRight: -100, marginTop: 20 }} />
 
 
         </View >
